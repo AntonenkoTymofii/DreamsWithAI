@@ -45,8 +45,6 @@
     DREAM_CATEGORIES {
         int dream_id FK
         int category_id FK
-        bool is_ai_assigned
-        float confidence_score
     }
     
     PSYCHOLOGICAL_REPORTS {
@@ -79,7 +77,8 @@
     
     USERS ||--o{ DREAMS : "creates"
     DREAMS ||--o{ DREAM_IMAGES : "has"
-    DREAMS }o--o{ CATEGORIES : "belongs to"
+    DREAMS }o--o{ DREAM_CATEGORIES : "belongs to"
+    DREAM_CATEGORIES }o--o{ CATEGORIES : "belongs to"
     USERS ||--o{ PSYCHOLOGICAL_REPORTS : "receives"
     USERS ||--o{ CONTEXT_DATA : "provides"
     DREAMS ||--o{ DREAM_EXPANDED_NARRATIVES : "has expansion"
